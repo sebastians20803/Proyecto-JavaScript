@@ -85,6 +85,15 @@ input{
     padding-left: 2%;
 }
 
+.error{
+    border:2px solid red;
+    outline: none;
+}
+.correcto{
+    border: 2px green solid;
+    outline: none;
+}
+
 label{
     align-self: flex-start;
     margin-left: 15%;
