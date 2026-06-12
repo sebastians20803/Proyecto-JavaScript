@@ -63,7 +63,7 @@
                     <div class="form-group">
                         <label for="titulo">Título</label>
                         <input type="text" id="titulo" name="titulo">
-                    </div class="form-group"> 
+                    </div> 
 
                     <div class="form-group">
                         <label for="tiempo">Tiempo en minutos</label>
@@ -81,39 +81,40 @@
                     </div>
                 </form>
 
-                <div class="preguntas"> </div>
+                <div id="preguntas" class="preguntasDiv"> 
+                    <div class="pregunta-main">
+                        <label>Preguntas </label>
+                        <button onclick=crearPregunta()>Agregar Pregunta</button>
+                    </div>
+                </div>
                 
+
+                <div class="crearExamenBtn">
+                    <button onclick=crearExamen()> Crear Examen</button>
+                    <button onclick=limpiarExamen()> Limpiar </button>
+                </div>
+
             </section>
 
             <section class="ExamenesRegistrados">
                 <h2>Examenes Registrados</h2>
-                <table class="tablaExamenes">
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Examen</th>
-                            <th>Tiempo</th>
-                            <th>Aprobación</th>
-                            <th>Preguntas</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>JS-101</td>
-                            <td>
-                                <strong>Fundamentos de JavaScript</strong><br>
-                                Conceptos básicos de variables, funciones, arrays y DOM.
-                            </td>
-                            <td>10 min</td>
-                            <td>70%</td>
-                            <td>3</td>
-                            <td>
-                                <button>Editar</button>
-                                <button>Eliminar</button>
-                            </td>
-                        </tr>
-                    </tbody>
+
+                <div class="tabla-container">
+                    <table class="tablaExamenes">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Examen</th>
+                                <th>Tiempo</th>
+                                <th>Aprobación</th>
+                                <th>Preguntas</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                            
+                        </tbody>
+                </div>
                 </table>
 
             </section>
@@ -125,6 +126,6 @@
     </main>
 
 
-
+    <script src="./appGestionDeExamenes.js"></script>
 </body>
 </html>
