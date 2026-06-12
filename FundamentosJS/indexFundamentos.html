@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acme School</title>
+    <link rel="stylesheet" href="./styleFundamentos.css">
+</head>
+<header>
+    <div class="logoAcme">
+        <img src="./AcmeSchool.png" alt="Logo Acme School" class="acme">
+    </div>
+    <nav class="nav">
+        <a href="">Resolver examen</a>
+        <a href="./login.html">Login</a>
+    </nav>
+
+    <div class="access">
+        <h1>Acceso público</h1>
+    </div>
+</header>
+<body>
+    <main class="contenedor">
+    <div class="card-examen">
+
+        <h1>Fundamentos de JavaScript</h1>
+
+        <p class="descripcion">
+            Antes de iniciar, registra los datos que quedarán asociados a tus respuestas.
+        </p>
+
+        <form>
+            <div class="campo">
+                <label for="identificacion">Número de Identificación:</label>
+                <input type="text" id="identificacion" placeholder="Escribe tu Número de Identificación"/>
+            </div>
+
+            <div class="campo">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" placeholder="Nombre Completo"/>
+            </div>
+
+            <div class="acciones">
+                <button type="submit">Iniciar examen</button>
+                <a href="">Volver</a>
+            </div>
+        </form>
+
+    </div>
+</main>
+</body>
+</html>
