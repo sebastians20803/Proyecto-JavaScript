@@ -1,3 +1,4 @@
+let examenes = []
 let examenEnEdicion = null;
 
 function crearPregunta (){
@@ -107,15 +108,19 @@ function limpiarExamen(){
     crearPregunta();
 }
 
-let examenes = []
 
 function crearExamen(){
+
     const codigo = document.getElementById('codigo').value;
     const titulo = document.getElementById('titulo').value;
     const tiempo = document.getElementById('tiempo').value;
     const porcentaje = document.getElementById('porcentaje').value;
     const descripcion = document.getElementById('descripcion').value;
 
+    if (!validarExamen()) {
+        return;
+
+    }
 
     const preguntas = document.querySelectorAll('.pregunta-item');
     const preguntasExamen = [];
@@ -294,6 +299,10 @@ function cargarPregunta (pregInfo){
 }
 
 function finalizarEdicion(){
+    if (!validarExamen()) { 
+        return;
+    }
+    
     const indice = examenes.indexOf(examenEnEdicion);
 
     examenes[indice] = {
@@ -362,6 +371,83 @@ function cargarExamenes() {
         examenes = JSON.parse(data);
     }
 }
+
+
+function validarExamen() {
+
+    const codigo = document.getElementById('codigo').value;
+    const titulo = document.getElementById('titulo').value;
+    const tiempo = document.getElementById('tiempo').value;
+    const porcentaje = document.getElementById('porcentaje').value;
+    const descripcion = document.getElementById('descripcion').value;
+
+    if (!codigo || !titulo || !tiempo){
+        alert("Faltan datos por rellenar");
+        return false;
+    }
+
+    if (tiempo <= 0) {
+        alert('Tiempo debe ser mayor a 0');
+        return false;
+    }
+    if (porcentaje < 1 || porcentaje > 100) {
+        alert('El porcentaje para pasar debe ser mayor de 1 y menor que 100');
+        return false;
+    }
+
+
+
+
+    const preguntas = document.querySelectorAll('.pregunta-item');
+
+    if (preguntas.length === 0) {
+            alert(`El examen debe tener al menos una pregunta`);
+            return false;
+        }   
+
+    for (let i = 0; i < preguntas.length; i++) {
+        const numeroPregunta = i + 1;
+        const textoPregunta = preguntas[i].querySelector('.preguntaQuestion').value.trim();
+        
+        if (!textoPregunta) {
+            alert(`La pregunta ${numeroPregunta} no tiene texto`);
+            return false;
+        }
+
+        const respuestas = preguntas[i].querySelectorAll('.opcion');
+        if (respuestas.length < 2) {
+            alert(`La pregunta ${numeroPregunta} debe tener al menos 2 respuestas`);
+            return false;
+        }
+
+        let todasConTexto = true;
+        let tieneCorrecta = false;
+
+        respuestas.forEach(opcion => {
+            if (!opcion.querySelector('input[type="text"]').value.trim()) {
+                todasConTexto = false;
+            }
+
+            if (opcion.querySelector('input[type="radio"]').checked) {
+                tieneCorrecta = true;
+            }
+        });
+
+        if (!todasConTexto) {
+            alert(`La pregunta ${numeroPregunta} tiene respuestas sin texto`);
+            return false;
+        }
+
+        if (!tieneCorrecta) {
+            alert(`La pregunta ${numeroPregunta} no tiene una respuesta correcta marcada`);
+            return false;
+        }
+    }
+    
+    return true; 
+}
+
+
 
 function f5(){
     location.reload();
