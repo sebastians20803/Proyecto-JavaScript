@@ -1,6 +1,31 @@
 let examenes = []
 let examenEnEdicion = null;
 
+const input = document.getElementById('tiempo');
+
+input.addEventListener('input', () => {
+  const valor = Number(input.value);
+
+  if (valor < 1) {
+    input.value = 1; 
+  } else if (valor > 60) {
+    input.value = 60;
+  }
+});
+
+const inputPorcentaje = document.getElementById('porcentaje');
+inputPorcentaje.addEventListener('input', ()=>{
+    const valor = Number(inputPorcentaje.value);
+
+  if (valor < 1) {
+    inputPorcentaje.value = 5; 
+  } else if (valor > 60) {
+    inputPorcentaje.value = 100;
+  }
+})
+
+
+
 function crearPregunta (){
     const preguntas = document.getElementById('preguntas');
     const div = document.createElement('div');

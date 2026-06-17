@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="usuarios.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header__img">
+            <img src="../sources/logo.png" alt="Logo Acme School" class="img__header">
+        </div>
+
+        <nav class="header__nav">
+            <a href="/indexMain.html" class="header__link">Resolver examen</a>
+            <a href="./usuarios.html" class="header__link active">Usuarios</a>
+            <a href="/GestionDeExamenes/indexGestionDeExamenes.html" class="header__link">Exámenes</a>
+        </nav>
+
+        <div class="header__user">
+            <span>Administrador Acme</span>
+            <a href="#">Salir</a>
+        </div>
+    </header>
+
+    <main class="section__form">
+
+        <div class="section__subtitulo">
+            <h3>ADMINISTRACIÓN</h3>
+            <h1>Gestión de usuarios</h1>
+            <p>
+                Crea, actualiza y elimina cuentas con acceso a los módulos privados.
+            </p>
+        </div>
+
+        <div class="usuarios__container">
+
+
+
+            <div class="card formulario">
+
+                <h2>Crear usuario</h2>
+
+                <form>
+
+                    <label for="identificacion">
+                        Número de identificación
+                    </label>
+                    <input type="text" id="identificacion" placeholder="Ingrese la identificación">
+                    <label for="nombre">
+                        Nombre completo
+                    </label>
+                    <input type="text" id="nombre" placeholder="Ingrese el nombre">
+
+                    <label for="email">
+                        Email
+                    </label>
+                    <input type="email" id="email" placeholder="correo@ejemplo.com">
+
+                    <label for="telefono">
+                        Teléfono
+                    </label>
+                    <input type="text" id="telefono" placeholder="Ingrese el teléfono">
+
+                    <label for="cargo">
+                        Cargo
+                    </label>
+
+                    <select id="cargo">
+                        <option>Administrativo</option>
+                        <option>Docente</option>
+                    </select>
+
+                    <label for="password">
+                        Contraseña
+                    </label>
+
+                    <input type="password" id="password" placeholder="Ingrese la contraseña">
+
+                    <div class="botones">
+
+                        <button type="submit" class="btn-primary">
+                            Crear usuario
+                        </button>
+
+                        <button type="reset" class="btn-secondary">
+                            Limpiar
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+
+            <div class="card tabla">
+
+                <div class="tabla__header">
+
+                    <h2>Usuarios registrados</h2>
+
+                    <span class="badge">
+                        1 registro
+                    </span>
+
+                </div>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>IDENTIFICACIÓN</th>
+                            <th>NOMBRE</th>
+                            <th>EMAIL</th>
+                            <th>CARGO</th>
+                            <th>ACCIONES</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>100000001</td>
+
+                            <td>
+                                Administrador Acme
+                            </td>
+
+                            <td>
+                                admin@acme.edu
+                            </td>
+
+                            <td>
+                                <span class="cargo">
+                                    Administrativo
+                                </span>
+                            </td>
+
+                            <td>
+                                <button class="accion editar">
+                                    Editar
+                                </button>
+
+                                <button class="accion eliminar">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

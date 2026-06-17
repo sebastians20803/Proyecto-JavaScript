@@ -10,14 +10,14 @@ body{
 }
 
 header{
+    margin: 0;;
+    background: #fff;
+    border-bottom: 2px solid #4a9ead;
+    padding: 0 28px;
     height: auto;
-    margin: 0;
-    border: 1px solid black;
     display: flex;
-    flex-direction: row;
+    align-items: center; 
     justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .logo_header{
@@ -33,62 +33,54 @@ header{
 
 .header_mid{
     display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-right: 100px;
-
-}
-
-.header_mid button {
-    height: 40%;
-    width: auto;
-    font: gray;
-    border: 0px;
-    font-weight:600;
-    font-size: 1rem;
-}
-
-.header_mid button:hover{
-    background-color: lightgreen;
-    cursor: pointer;
-    color: red;
-}
-
-.header_right{
-
-    display: flex;
-    align-items: center;
     
+    display: flex; 
+    gap: 5px;
+    margin-right: 6rem;
 }
 
 
-.boton_salir_header {
-    align-items: center;
-    height: 40%;
-    width: auto;
-    font: gray;
-    border: 0px;
+.nav-link {
+  padding: 7px 16px; 
+  border-radius: 7px;
+  font-size: 13px; 
+  color: #444; 
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  border: 1.5px solid transparent;
+  text-decoration: none;
 }
-.header_right button {
-    height: 40%;
-    width: auto;
-    font: gray;
-    border: 0px;
-    font-weight:600;
-    font-size: 1rem;
+.nav-link:hover { 
+    background: #eef7f9; 
+    color: #4a9ead; 
 }
-.header_right button:hover{
-    background-color: red;
+.nav-link.active {
+  background: #eef7f9; 
+  color: #4a9ead;
+  border-color: #4a9ead;
+  font-weight: 500;
+}
+
+
+.header_right {
+  font-size: 13px;
+   color: #888;
     cursor: pointer;
-    color: white;
+  padding: 6px 12px; 
+  border-radius: 7px;
+  transition: background 0.18s, color 0.18s;
+  border: 0.5px solid gray;
 }
+.header_right:hover { background: #fdeaea; color: #e05555; }
+
+
 
 main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background-color: #98C9D7;
+    background-color: #d6e8ed;
     height: auto;
     width: 100%;
 }
@@ -111,6 +103,9 @@ main {
     margin: 0;
 }
 
+.titulo_main p{
+    margin-bottom: 0px;
+}
 .examen_main{
     display: flex;
     flex-direction: row;

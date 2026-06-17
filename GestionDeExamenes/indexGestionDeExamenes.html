@@ -20,24 +20,23 @@
 
 
         <section class="header_mid"> 
-            <button class="botones_mid_header">
+            <a href="/indexMain.html" class="nav-link">
                 Resolver Examen
-            </button>
+            </a>
 
-            <button class="botones_mid_header">
+            <a href="/GestionUsuarios/usuarios.html" class="nav-link">
                 Usuarios
-            </button>
+            </a>
 
-            <button class="botones_mid_header">
+            <a href="./indexGestionDeExamenes.html" class="nav-link active">
                 Examenes
-            </button>
+            </a>
         </section>
 
-        <section class="header_right">
-            <button class="boton_salir_header">
-                Salir
-            </button>
-        </section>
+        <button class="header_right">
+            Salir
+        </button>
+        
 
     </header>
 
@@ -57,12 +56,12 @@
                 <form class="formExamen">
                     <div class="form-group">
                         <label for="codigo">Código</label>
-                        <input type="text" id="codigo" name="codigo" required>
+                        <input type="text" id="codigo" name="codigo" required placeholder="JS-001">
                     </div>
 
                     <div class="form-group">
                         <label for="titulo">Título</label>
-                        <input type="text" id="titulo" name="titulo" required>
+                        <input type="text" id="titulo" name="titulo" required placeholder="JavaScript">
                     </div> 
 
                     <div class="form-group">
@@ -77,7 +76,7 @@
 
                     <div class="form-group full-width">
                         <label for="descripcion">Descripción</label>
-                        <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+                        <textarea id="descripcion" name="descripcion" rows="4" placeholder="Escribe una descripcion para tu examen... "></textarea>
                     </div>
                 </form>
 

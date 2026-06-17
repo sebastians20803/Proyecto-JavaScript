@@ -154,4 +154,13 @@ h1 {
 .acciones a:hover {
     color: #376069;
 }
+.error{
+    color: red;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+}
 
+.input-error{
+    border: 2px solid red;
+}
