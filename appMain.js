@@ -1,7 +1,9 @@
+let examenes = []
+
 function adjuntarExamen(examen){
-    const examenes = document.getElementById('examenes')
-    const section  = document.createElement('section')
-    section.classList.add ('card-examen')
+    const contenedor = document.getElementById('examenes')
+    const section  = document.createElement('section');
+    section.classList.add ('card-examen');
     section.innerHTML =
     `
     <div class="linea-superior" id="divSeleccion"></div>
@@ -13,18 +15,19 @@ function adjuntarExamen(examen){
         </p>
 
         <div class="detalles">
-            <span> ${examen.tiempo}</span>
-            <span> ${examen.porcentaje}</span>
-            <span> ${examen.preguntas.length}</span>
+            <span> ${examen.tiempo} min </span>
+            <span> ${examen.porcentaje}% aprueba</span>
+            <span> ${examen.preguntas.length} preguntas </span>
         </div>
 
     <nav class="nav">
-        <a href="./FundamentosJS/indexFundamentos.html">Presentar</a>
+        <a href="./FundamentosJS/indexFundamentos.html?examen=${examenes.indexOf(examen)}">Presentar</a>
     </nav>
     
     `
-    examenes.append(section);
+    contenedor.append(section);
 };
+
 function cargarExamenes() {
     const data = localStorage.getItem('examenes');
     if (data) {
@@ -35,7 +38,5 @@ function cargarExamenes() {
 document.addEventListener('DOMContentLoaded', () => {
     cargarExamenes()
     examenes.forEach(examen => adjuntarExamen(examen))
-    adjuntarExamen()
-
 });
 

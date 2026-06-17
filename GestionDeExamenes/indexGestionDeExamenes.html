@@ -57,22 +57,22 @@
                 <form class="formExamen">
                     <div class="form-group">
                         <label for="codigo">Código</label>
-                        <input type="text" id="codigo" name="codigo">
+                        <input type="text" id="codigo" name="codigo" required>
                     </div>
 
                     <div class="form-group">
                         <label for="titulo">Título</label>
-                        <input type="text" id="titulo" name="titulo">
+                        <input type="text" id="titulo" name="titulo" required>
                     </div> 
 
                     <div class="form-group">
                         <label for="tiempo">Tiempo en minutos</label>
-                        <input type="number" id="tiempo" name="tiempo" min="0">
+                        <input type="number" id="tiempo" name="tiempo" min="1" max="60" placeholder="Maximo : 60min" required>
                     </div>
 
                     <div class="form-group">
                         <label for="porcentaje">Porcentaje de aprobación</label>
-                        <input type="number" id="porcentaje" name="porcentaje" min="0" max="100">
+                        <input type="number" id="porcentaje" name="porcentaje" min="5" max="100" value="70" >
                     </div>
 
                     <div class="form-group full-width">

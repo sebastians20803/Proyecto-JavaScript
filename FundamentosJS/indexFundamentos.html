@@ -6,24 +6,26 @@
     <title>Acme School</title>
     <link rel="stylesheet" href="./styleFundamentos.css">
 </head>
-<header>
-    <div class="logoAcme">
-        <img src="./AcmeSchool.png" alt="Logo Acme School" class="acme">
-    </div>
-    <nav class="nav">
-        <a href="">Resolver examen</a>
-        <a href="./login.html">Login</a>
-    </nav>
 
-    <div class="access">
-        <h1>Acceso público</h1>
-    </div>
-</header>
 <body>
+    <header>
+        <div class="logoAcme">
+            <img src="./AcmeSchool.png" alt="Logo Acme School" class="acme">
+        </div>
+        <nav class="nav">
+            <a href="">Resolver examen</a>
+            <a href="./login.html">Login</a>
+        </nav>
+
+        <div class="access">
+            <h1>Acceso público</h1>
+        </div>
+    </header>
+    
     <main class="contenedor">
     <div class="card-examen">
 
-        <h1>Fundamentos de JavaScript</h1>
+        <h1 id="tituloExamen">Fundamentos de JavaScript</h1>
 
         <p class="descripcion">
             Antes de iniciar, registra los datos que quedarán asociados a tus respuestas.
@@ -42,13 +44,14 @@
 
             <div class="acciones">
                 <nav>
-                <a href="">Iniciar Examen</a>
+                <a href="#" onclick="iniciarExamen()">Iniciar Examen</a>
                 <a href="../indexMain.html">Volver</a>
                 </nav>
             </div>
         </form>
 
-    </div>
-</main>
+        </div>
+    </main>
+    <script src="./appFundamentos.js"></script>
 </body>
 </html>
