@@ -4,117 +4,212 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-     font-family: "Inter", sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 img{
     width: 100%;
+    display: block;
 }
+
+body{
+    height: 100vh;
+}
+
+
 
 header{
     width: 100%;
-    height: 10vh;
+    min-height: 10vh;
     background-color: white;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0 1rem;
 }
-.header__img{
-    width: 10%;
 
-    height: 100%;
+.header__img{
+    width: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    top: 5%;
+}
+
+.img__header{
+    width: 100%;
 }
 
 .header__link{
     text-decoration: none;
     color: black;
     font-weight: 500;
+    transition: .3s;
 }
+
 .header__link:hover{
     text-decoration: underline;
 }
-.img__header{
-    width: 150%;
-}
+
+
 .section__login{
     width: 100%;
-    height: 90vh;
+    min-height: 90vh;
     background-color: #d9e8ef;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1%;
+    gap: 2rem;
+    padding: 2rem;
 }
 
 .img__container{
-    width: 45%;
-    height: 50%;
-    background-color: lightcoral;
-    overflow: hidden;
+    width: min(600px, 45%);
     border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 2px 2px 10px rgba(0,0,0,.15);
 }
 
 .body__img{
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .form{
-    display: flex;
-    align-items: center;
-    width: 30%;
-    height: 45%;
+    width: min(450px, 90%);
     background-color: white;
+    display: flex;
     flex-direction: column;
     border-radius: 20px;
-    box-shadow: 2px 2px 5px 1px rgb(165, 165, 165);
+    box-shadow: 2px 2px 10px rgba(0,0,0,.15);
+    padding: 2rem;
 }
 
-input{
-    width: 70%;
-    height: 15%;
-    border-radius: 10px;
-    border: 1px gray solid;
-    padding-left: 2%;
-}
-
-.error{
-    border:2px solid red;
-    outline: none;
-}
-.correcto{
-    border: 2px green solid;
-    outline: none;
+.form__titulo{
+    text-align: center;
+    margin-bottom: 1.5rem;
 }
 
 label{
-    align-self: flex-start;
-    margin-left: 15%;
-    margin-top: 4%;
-    margin-bottom: 2%;
+    margin-bottom: .5rem;
     font-weight: 600;
 }
 
+input{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: 0 12px;
+    margin-bottom: 1rem;
+    font-size: 15px;
+}
+
+input:focus{
+    outline: none;
+    border-color: #007aff;
+}
+
+.error{
+    border: 2px solid red;
+}
+
+.correcto{
+    border: 2px solid green;
+}
+
+.form__texto{
+    min-height: 20px;
+    text-align: center;
+}
+
 .form__btn{
-    width: 70%;
-    height: 15%;
-    margin-top: 8%;
+    width: 100%;
+    height: 50px;
+    margin-top: 1rem;
     border-radius: 10px;
     background-color: #007aff;
     color: white;
     border: none;
     font-weight: 600;
     font-size: 16px;
-    transition: 0.3s;
+    transition: .3s;
     cursor: pointer;
 }
+
 .form__btn:hover{
     background-color: #0062cc;
+}
+
+
+
+@media (max-width: 1024px){
+
+    .section__login{
+        gap: 1.5rem;
+    }
+
+    .img__container{
+        width: 50%;
+    }
+
+    .form{
+        width: 40%;
+    }
+}
+
+
+
+@media (max-width: 768px){
+
+    header{
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .header__img{
+        width: 120px;
+    }
+
+    .section__login{
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .img__container{
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .form{
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 480px){
+
+    .section__login{
+        padding: 1rem;
+    }
+
+    .form{
+        padding: 1.5rem;
+    }
+
+    .form__titulo{
+        font-size: 1.8rem;
+    }
+
+    .header__link{
+        font-size: 14px;
+    }
+
+    input,
+    .form__btn{
+        height: 45px;
+    }
 }

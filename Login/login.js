@@ -12,12 +12,9 @@ let user = {
 
 btnIngresar.addEventListener("click", () => {
 
-
     validarInputs();
     
 })
-
-
 
 //Validar si los input cumple con las condiciones
 
@@ -27,14 +24,7 @@ function validarInputs(){
 
     const email = dom.getElementById("emailInput");
     const password = dom.getElementById("passwordInput");
-
-    
-    if(!regEmail.test(email.value)){
-        
-    }else{
-        
-    }
-    
+ 
 
     if(password.value.length<8){
        password.classList.add("error")
@@ -47,15 +37,15 @@ function validarInputs(){
     }
     
 const mensaje =
-    password.value.length < 8 || password.value.length > 20
+    password.value.length < 8
         ? "Longitud inválida"
-        : !/[a-z]/.test(password)
+        : !/[a-z]/.test(password.value)
         ? "Debe contener una minúscula"
-        : !/[A-Z]/.test(password)
+        : !/[A-Z]/.test(password.value)
         ? "Debe contener una mayúscula"
-        : !/[0-9]/.test(password)
+        : !/[0-9]/.test(password.value)
         ? "Debe contener un número"
-        : !/[^A-Za-z0-9]/.test(password)
+        : !/[^A-Za-z0-9]/.test(password.value)
         ? "Debe contener un símbolo"
         : "Contraseña válida";
     alert(mensaje);
