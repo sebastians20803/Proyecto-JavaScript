@@ -7,7 +7,7 @@ const btnIngresar = dom.getElementById("formBtn");
 
 let user = {
     email: "brayanstevenriano@gmail.com",
-    password: "12345678"
+    password: "12345Aa@"
 }
 
 btnIngresar.addEventListener("click", () => {
@@ -47,6 +47,8 @@ const mensaje =
         ? "Debe contener un número"
         : !/[^A-Za-z0-9]/.test(password.value)
         ? "Debe contener un símbolo"
-        : "Contraseña válida";
+        : password.value !== user.password
+        ? "contraseña incorrecta"
+        : "contraseña valida";
     alert(mensaje);
 }     
