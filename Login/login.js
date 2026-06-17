@@ -7,7 +7,7 @@ const btnIngresar = dom.getElementById("formBtn");
 
 let user = {
     email: "brayanstevenriano@gmail.com",
-    password: "12345678"
+    password: "12345678Aa@"
 }
 
 btnIngresar.addEventListener("click", () => {
