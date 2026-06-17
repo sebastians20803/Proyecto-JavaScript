@@ -83,11 +83,11 @@
 
                     <div class="botones">
 
-                        <button type="submit" class="btn-primary">
+                        <button type="submit" class="btn-primary" id="btnCrearUsuario">
                             Crear usuario
                         </button>
 
-                        <button type="reset" class="btn-secondary">
+                        <button type="reset" class="btn-secondary" id="btnLimpiar">
                             Limpiar
                         </button>
 
@@ -110,11 +110,9 @@
                     </span>
 
                 </div>
-
-                <table>
-
+                
+                <table id="tablaUsuario">
                     <thead>
-
                         <tr>
                             <th>IDENTIFICACIÓN</th>
                             <th>NOMBRE</th>
@@ -122,41 +120,10 @@
                             <th>CARGO</th>
                             <th>ACCIONES</th>
                         </tr>
-
                     </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>100000001</td>
-
-                            <td>
-                                Administrador Acme
-                            </td>
-
-                            <td>
-                                admin@acme.edu
-                            </td>
-
-                            <td>
-                                <span class="cargo">
-                                    Administrativo
-                                </span>
-                            </td>
-
-                            <td>
-                                <button class="accion editar">
-                                    Editar
-                                </button>
-
-                                <button class="accion eliminar">
-                                    Eliminar
-                                </button>
-                            </td>
-                        </tr>
-
+                    <tbody id="cuerpoTabla">
+                        
                     </tbody>
-
                 </table>
 
             </div>
@@ -164,7 +131,7 @@
         </div>
 
     </main>
-
+<script src="usuarios.js"></script>
 </body>
 
 </html>
