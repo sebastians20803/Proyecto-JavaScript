@@ -17,7 +17,6 @@ body{
     background:#f4f8fb;
 }
 
-/* HEADER */
 
 header{
     width:100%;
@@ -78,7 +77,26 @@ header{
     color:#111827;
 }
 
-/* CONTENIDO */
+.header__nav {
+  padding: 7px 16px; 
+  border-radius: 7px;
+  font-size: 13px; 
+  color: #444; 
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  border: 1.5px solid transparent;
+  text-decoration: none;
+}
+.header__nav a:hover { 
+    background: #eef7f9; 
+    color: #4a9ead; 
+}
+.header__nav a.active {
+  background: #eef7f9; 
+  color: #4a9ead;
+  border-color: #4a9ead;
+  font-weight: 500;
+}
 
 .section__form{
     width:min(1200px,90%);
@@ -109,7 +127,6 @@ header{
     font-size:1rem;
 }
 
-/* GRID */
 
 .usuarios__container{
     display:grid;
@@ -118,7 +135,7 @@ header{
     align-items:start;
 }
 
-/* CARD */
+
 
 .card{
     background:white;
@@ -129,7 +146,6 @@ header{
     0 1px 3px rgba(0,0,0,.05);
 }
 
-/* FORMULARIO */
 
 .formulario h2{
     font-size:1.2rem;
@@ -217,17 +233,6 @@ select:focus{
     font-size:1.2rem;
 }
 
-.badge{
-    background:#fef3c7;
-    color:#92400e;
-
-    padding:.4rem .8rem;
-    border-radius:20px;
-
-    font-size:.8rem;
-    font-weight:600;
-}
-
 table{
     width:100%;
     border-collapse:collapse;
@@ -249,13 +254,9 @@ tbody td{
 }
 
 .cargo{
-    display:inline-block;
-
     padding:.35rem .7rem;
-
     background:#dbeafe;
     color:#1e40af;
-
     border-radius:999px;
     font-size:.8rem;
     font-weight:600;

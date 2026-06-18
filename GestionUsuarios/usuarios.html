@@ -17,13 +17,13 @@
 
         <nav class="header__nav">
             <a href="/indexMain.html" class="header__link">Resolver examen</a>
-            <a href="./usuarios.html" class="header__link active">Usuarios</a>
-            <a href="/GestionDeExamenes/indexGestionDeExamenes.html" class="header__link">Exámenes</a>
+            <a href="/GestionUsuarios/usuarios.html" class="header__link active">Usuarios</a>
+            <a href="../GestionDeExamenes/indexGestionDeExamenes.html" class="header__link">Exámenes</a>
         </nav>
 
         <div class="header__user">
             <span>Administrador Acme</span>
-            <a href="#">Salir</a>
+            <a onclick=cerrarSesion()>Salir</a>
         </div>
     </header>
 
@@ -83,11 +83,11 @@
 
                     <div class="botones">
 
-                        <button type="submit" class="btn-primary">
+                        <button type="submit" class="btn-primary" id="btnCrearUsuario">
                             Crear usuario
                         </button>
 
-                        <button type="reset" class="btn-secondary">
+                        <button type="reset" class="btn-secondary" id="btnLimpiar">
                             Limpiar
                         </button>
 
@@ -105,16 +105,11 @@
 
                     <h2>Usuarios registrados</h2>
 
-                    <span class="badge">
-                        1 registro
-                    </span>
 
                 </div>
-
-                <table>
-
+                
+                <table id="tablaUsuario">
                     <thead>
-
                         <tr>
                             <th>IDENTIFICACIÓN</th>
                             <th>NOMBRE</th>
@@ -122,41 +117,10 @@
                             <th>CARGO</th>
                             <th>ACCIONES</th>
                         </tr>
-
                     </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>100000001</td>
-
-                            <td>
-                                Administrador Acme
-                            </td>
-
-                            <td>
-                                admin@acme.edu
-                            </td>
-
-                            <td>
-                                <span class="cargo">
-                                    Administrativo
-                                </span>
-                            </td>
-
-                            <td>
-                                <button class="accion editar">
-                                    Editar
-                                </button>
-
-                                <button class="accion eliminar">
-                                    Eliminar
-                                </button>
-                            </td>
-                        </tr>
-
+                    <tbody id="cuerpoTabla">
+                        
                     </tbody>
-
                 </table>
 
             </div>
@@ -165,6 +129,8 @@
 
     </main>
 
+<script src="../AutentificarCuenta/auth.js"></script>
+<script src="usuarios.js"></script>
 </body>
 
 </html>

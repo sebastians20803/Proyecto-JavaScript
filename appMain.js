@@ -38,5 +38,6 @@ function cargarExamenes() {
 document.addEventListener('DOMContentLoaded', () => {
     cargarExamenes()
     examenes.forEach(examen => adjuntarExamen(examen))
+    
 });
 

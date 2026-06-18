@@ -3,21 +3,23 @@ let intervalo = null;
 
 function temporizador(examenTimer) {
     const minutos = examenTimer.tiempo;
-    const display = document.getElementById('displayTimer')
+    const display = document.getElementById('displayTimer');
     clearInterval(intervalo);
 
     display.textContent = minutos;
 
-    let tiempoRestante = minutos * 60;
+    let tiempoRestante = parseInt(sessionStorage.getItem('tiempoRestante')) || (examenTimer.tiempo * 60);
 
     actualizarDisplay();
 
     intervalo = setInterval(() => {
         tiempoRestante--;
+        sessionStorage.setItem('tiempoRestante',tiempoRestante);
         actualizarDisplay();
         if (tiempoRestante === 0) {
             clearInterval(intervalo);
-            display.textContent = '¡Tiempo cumplido!';
+            sessionStorage.removeItem('tiempoRestante');
+            enviarExamenAutomaticamente();
         }
         
     }, 1000);
@@ -31,6 +33,19 @@ function temporizador(examenTimer) {
             `${String(mins).padStart(2, '0')}:${String(segs).padStart(2, '0')}`;
     }
 }
+
+function enviarExamenAutomaticamente() {
+
+    const params = new URLSearchParams(window.location.search);
+    const indice = params.get('examen');
+
+    alert("El tiempo ha terminado. El examen será enviado automáticamente.");
+
+    window.location.href =
+        `../CalificacionFinal/indexCalificacion.html?examen=${indice}`;
+}
+
+
 
 function tituloExamen(examen){
 
@@ -85,14 +100,18 @@ function preguntasExamen(examenPreguntas){
 
         respuestas.forEach((respuestaI, index) =>{
             const rta = respuestaI.respuesta;
-            div.innerHTML+= 
+        div.innerHTML+= 
             `
-            <label class="option" >
-                <input type="radio" name="q${indice+1}" id="opt-let">
-                ${rta}
-            </label>
+             <label class="option">
+            <input
+                type="radio"
+                name="q${indice + 1}"
+                value="${index}"
+                onchange="guardarRespuesta(${indice}, ${index})">
+            ${rta}
+            </label>`;
 
-             `
+             
         })
 
         section.append(div)
@@ -100,8 +119,7 @@ function preguntasExamen(examenPreguntas){
     })
         
     main.append(section)
-    
-   
+
 
 }
 
@@ -121,3 +139,72 @@ document.addEventListener('DOMContentLoaded', () => {
     temporizador(examen);
    
 });
+
+function guardarRespuesta(pregunta,respuesta){
+    let respuestas = JSON.parse(sessionStorage.getItem("respuestasExamen")) || {};
+
+    respuestas[pregunta] = respuesta;
+
+    sessionStorage.setItem("respuestasExamen", JSON.stringify(respuestas)
+    );
+}
+
+
+function restaurarRespuestas() {
+
+    const respuestasGuardadas =
+        JSON.parse(sessionStorage.getItem("respuestasExamen")) || {};
+
+    Object.keys(respuestasGuardadas).forEach(pregunta => {
+
+        const respuesta = respuestasGuardadas[pregunta];
+
+        const radio = document.querySelector(
+            `input[name="q${Number(pregunta)+1}"][value="${respuesta}"]`
+        );
+
+        if (radio) {
+            radio.checked = true;
+        }
+    });
+}
+
+
+function validarRespuestas() {
+    const preguntas = document.querySelectorAll('.caja-pregunta');
+
+    return Array.from(preguntas).every((pregunta, indice) => {
+        const radios = pregunta.querySelectorAll('input[type="radio"]');
+        const haySeleccion = Array.from(radios).some(r => r.checked);
+
+        if (!haySeleccion) {
+            alert(`Debes responder la pregunta ${indice + 1} antes de continuar`);
+        }
+
+        return haySeleccion;
+    });
+}
+
+
+
+function botonFinalizar(){
+
+    if (!validarRespuestas()){
+        return
+    }
+    const btnFinalizar = document.getElementById('btnFinalizar')
+    const params = new URLSearchParams(window.location.search);
+    const indice = params.get('examen');
+
+    window.location.href =`../CalificacionFinal/indexCalificacion.html?examen=${indice}`;
+
+}
+
+
+function salir(){
+
+    sessionStorage.removeItem('respuestasExamen');
+    sessionStorage.removeItem('tiempoRestante');
+    window.location.href ="/indexMain.html";
+    
+}

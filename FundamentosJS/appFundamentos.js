@@ -27,12 +27,11 @@ function validacionInfo() {
         errorNombre.textContent = "El nombre solo puede contener letras.";
         valido = false;
     }
-
+    
+    console.log("Formulario válido");
     return valido;
 
-    console.log("Formulario válido");
 }
-
 function iniciarExamen() {
 
     if (!validacionInfo()){
@@ -41,7 +40,7 @@ function iniciarExamen() {
 
     const params = new URLSearchParams(window.location.search);
     const indice = params.get('examen');
-    window.location.href =` ../RealizarExamen/indexRealizarExamen.html?examen=${indice}`;
+    window.location.href =`../RealizarExamen/indexRealizarExamen.html?examen=${indice}`;
 }
 
 function cargarExamenSeleccionado() {
@@ -55,6 +54,7 @@ function cambiarTitulo(examen){
    const tituloExamen = document.getElementById('tituloExamen');
    tituloExamen.textContent =  examen.titulo;
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
 

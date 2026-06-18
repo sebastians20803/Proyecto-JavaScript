@@ -1,26 +1,36 @@
+let users = [];
 
-let users = [
 
-    { 
-        email: "brayanstevenriano@gmail.com",
-        password: "Sebastian123!"
-    }, 
-     {
-        email: "sebastians20803@gmail.com",
-        password: "Sebastian123!"
-    },
-     { 
-        email: "sebastiancampus@gmail.com",
-        password: "Sebastian123!"
-    },
+function cargarUsers() {
+    
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-] 
+
+
+    if (usuarios.length === 0) {
+    usuarios.push({
+        identificacion: "1",
+        nombre: "Administrador",
+        email: "admin",
+        password: "admin",
+        cargo: "Administrador"
+    });
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+}
+users = usuarios;
+
+}
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    cargarUsers()
+    
+});
+
 
 const dom = document;
-
-
- 
-
 
 function validarInputs() {
     const email = dom.getElementById("emailInput").value.trim();
@@ -43,6 +53,16 @@ function validarInputs() {
         return;
     }
 
+    
+    sessionStorage.setItem("usuarioLogueado", JSON.stringify({
+    identificacion: usuarioEncontrado.identificacion,
+    nombre: usuarioEncontrado.nombre,
+    email: usuarioEncontrado.email,
+    cargo: usuarioEncontrado.cargo
+    }));
+
+
     window.location.href = "../GestionUsuarios/usuarios.html";
 
 }
+

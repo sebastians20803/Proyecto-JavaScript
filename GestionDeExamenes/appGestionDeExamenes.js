@@ -19,7 +19,7 @@ inputPorcentaje.addEventListener('input', ()=>{
 
   if (valor < 1) {
     inputPorcentaje.value = 5; 
-  } else if (valor > 60) {
+  } else if (valor > 100) {
     inputPorcentaje.value = 100;
   }
 })
@@ -472,6 +472,13 @@ function validarExamen() {
     return true; 
 }
 
+
+
+
+function cerrarSesion() {
+    sessionStorage.removeItem("usuarioLogueado");
+    f5()
+}
 
 
 function f5(){
