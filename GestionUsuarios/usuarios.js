@@ -4,10 +4,11 @@ const btnCrearUsuario = dom.getElementById("btnCrearUsuario");
 const btnLimpiar = dom.getElementById("btnLimpiar");
 const cuerpoTabla = dom.getElementById("cuerpoTabla");
 
-// Cargar usuarios guardados o crear arreglo vacío
 let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-// Mostrar usuarios al abrir la página
+let modoEdicion = false;
+let idEditando = null;
+
 mostrarUsuarios();
 
 btnCrearUsuario.addEventListener("click", crearUsuario);
@@ -34,32 +35,50 @@ function crearUsuario(e) {
         return;
     }
 
-    // Verificar si ya existe el ID
-    for (let usuario of usuarios) {
-        if (usuario.identificacion === identificacion) {
-            alert("Ya existe un usuario con esa identificación");
-            return;
+    if (modoEdicion) {
+
+        for (let usuario of usuarios) {
+            if (usuario.identificacion === idEditando) {
+
+                usuario.identificacion = identificacion;
+                usuario.nombre = nombre;
+                usuario.email = email;
+                usuario.telefono = telefono;
+                usuario.cargo = cargo;
+                usuario.password = password;
+
+                break;
+            }
         }
+
+        modoEdicion = false;
+        idEditando = null;
+
+    } else {
+
+        for (let usuario of usuarios) {
+            if (usuario.identificacion === identificacion) {
+                alert("Ya existe un usuario con esa identificación");
+                return;
+            }
+        }
+
+        const usuario = {
+            identificacion,
+            nombre,
+            email,
+            telefono,
+            cargo,
+            password
+        };
+
+        usuarios.push(usuario);
     }
 
-    // Crear objeto usuario
-    const usuario = {
-        identificacion,
-        nombre,
-        email,
-        telefono,
-        cargo,
-        password
-    };
-
-    // Agregar al arreglo
-    usuarios.push(usuario);
-
-    // Guardar en localStorage
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-    // Actualizar tabla
     mostrarUsuarios();
+
+    dom.querySelector("form").reset();
 }
 
 function mostrarUsuarios() {
@@ -88,6 +107,15 @@ function mostrarUsuarios() {
     }
 }
 
+function cargarFormulario(usuario) {
+    dom.getElementById("identificacion").value = usuario.identificacion;
+    dom.getElementById("nombre").value = usuario.nombre;
+    dom.getElementById("email").value = usuario.email;
+    dom.getElementById("telefono").value = usuario.telefono;
+    dom.getElementById("cargo").value = usuario.cargo;
+    dom.getElementById("password").value = usuario.password;
+}
+
 cuerpoTabla.addEventListener("click", (e) => {
 
     if (e.target.classList.contains("eliminar")) {
@@ -95,16 +123,26 @@ cuerpoTabla.addEventListener("click", (e) => {
         const fila = e.target.closest("tr");
         const identificacion = fila.children[0].textContent;
 
-        // Eliminar del arreglo
         usuarios = usuarios.filter(
             usuario => usuario.identificacion !== identificacion
         );
 
-        // Actualizar localStorage
         localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-        // Actualizar tabla
         mostrarUsuarios();
     }
 
+    if (e.target.classList.contains("editar")) {
+
+        const fila = e.target.closest("tr");
+        const identificacion = fila.children[0].textContent;
+
+        const usuario = usuarios.find(
+            u => u.identificacion === identificacion
+        );
+
+        cargarFormulario(usuario);
+
+        modoEdicion = true;
+        idEditando = identificacion;
+    }
 });
