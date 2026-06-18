@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificación Final</title>
+    <link rel="stylesheet" href="./styleCalificacion.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logoAcme">
+            <img src="./AcmeSchool.png" alt="Logo Acme School" class="acme">
+        </div>
+
+        <nav class="nav">
+            <a href="../indexMain.html" onclick=eliminarSession()>Resolver examen</a>
+            <a href="../Login/login.html"onclick=eliminarSession() >Login</a>
+        </nav>
+
+        <div class="access">
+            <h1>Acceso público</h1>
+        </div>
+    </header>
+
+    <main class="contenedor">
+
+        <section class="resultado-card">
+
+            <h4>Resultado</h4>
+
+            <h2 id="nombreExamen"></h2>
+
+            <h1 id="porcetajeResultado">0%</h1>
+
+            <p class="detalle-resultado">
+                <span id="preguntasAcertadas">0</span>
+                de
+                <span id="totalPreguntas">0</span>
+                preguntas acertadas
+            </p>
+
+            <p class="detalle-resultado">
+                Calificación mínima para aprobar:
+                <span id="porcentajeMinimo">0</span>%
+            </p>
+
+            <div id="estadoExamen">
+
+            </div>
+
+        </section>
+
+        <nav class="acciones">
+            <a href="../indexMain.html" onclick="eliminarSession()" >Volver a Exámenes</a>
+        </nav>
+
+    </main>
+
+    <script src="./appCalificacion.js"></script>
+
+</body>
+</html>

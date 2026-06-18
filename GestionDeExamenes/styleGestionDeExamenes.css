@@ -1,0 +1,517 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    margin: 0;
+}
+
+header{
+    margin: 0;;
+    background: #fff;
+    border-bottom: 2px solid #4a9ead;
+    padding: 0 28px;
+    height: auto;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+
+.logo_header{
+    
+    background-image: url(./LogoHeader.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 10%;
+    width: 200px;
+    height: 80px;
+}
+
+
+.header_mid{
+    display: flex;
+    
+    display: flex; 
+    gap: 5px;
+    margin-right: 6rem;
+}
+
+
+.nav-link {
+  padding: 7px 16px; 
+  border-radius: 7px;
+  font-size: 13px; 
+  color: #444; 
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  border: 1.5px solid transparent;
+  text-decoration: none;
+}
+.nav-link:hover { 
+    background: #eef7f9; 
+    color: #4a9ead; 
+}
+.nav-link.active {
+  background: #eef7f9; 
+  color: #4a9ead;
+  border-color: #4a9ead;
+  font-weight: 500;
+}
+
+
+.header_right {
+  font-size: 13px;
+   color: #888;
+    cursor: pointer;
+  padding: 6px 12px; 
+  border-radius: 7px;
+  transition: background 0.18s, color 0.18s;
+  border: 0.5px solid gray;
+}
+.header_right:hover { background: #fdeaea; color: #e05555; }
+
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #d6e8ed;
+    height: auto;
+    width: 100%;
+}
+
+.titulo_main{
+    margin-top: 40px;
+    width: auto;
+    margin-left: 25%;
+
+}
+
+.titulo_main h2 {
+    font-size: 1rem;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.titulo_main h1{
+    font-size: 3rem;
+    margin: 0;
+}
+
+.titulo_main p{
+    margin-bottom: 0px;
+}
+.examen_main{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 20px;
+    margin-top: 2rem;
+    margin-left: 25%;
+    
+
+}
+
+.crearExamen{
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 1rem;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    
+}
+.crearExamen h2{
+    margin-top: 0;
+}
+.formExamen{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    border-bottom: 1px solid gray;
+
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group.full-width {
+    grid-column: 1 / -1;
+    margin-bottom: 1.4rem;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.form-group textarea{
+    min-height: 120px;
+    resize: vertical;
+
+}
+
+
+.ExamenesRegistrados{
+    width: 50%;
+    height: 100%;
+   
+    border-radius: 1rem;
+    padding: 10px;
+    background-color: white;
+}
+
+
+.ExamenesRegistrados h2{
+    font-size: 1.5rem;
+}
+
+.tabla-container{
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tablaExamenes {
+
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow-x: scroll;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+   
+  
+}
+
+thead {
+    background-color: #f8f9fa;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    border-bottom: 2px solid #e9ecef;
+}
+
+td {
+    padding: 16px 15px;
+    color: #333;
+    border-bottom: 1px solid #f1f1f1;
+    vertical-align: top;
+}
+
+tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+tbody tr td:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+tbody tr td button{
+    border-radius: 2px;
+    font-size: 15px;
+    padding: 6px;
+    cursor: pointer;
+}
+tbody tr td button:last-child{
+    border-radius: 2px;
+    font-size: 15px;
+    color: red;
+}
+
+
+.pregunta-item{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    border: 1px solid gray;
+    border-left: 1px solid black;
+    padding: 10px;
+    border-radius: 1rem;
+    gap: 10px;
+    border-left: 6px solid #2e6977; 
+    
+}
+
+
+.pregunta-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.pregunta-main button {
+    width: 150px;
+    height: 40px;
+    border-radius: 1rem;
+    background-color: #2e6977;
+    border: 2px solid ;
+    font-weight: bold;
+    color: white;
+    
+}
+
+.pregunta-main button:hover{
+    cursor: pointer;
+}
+
+
+.pregunta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pregunta-header button,.opcion button{
+    width: auto;
+    border-radius: 1rem;
+    background-color: rgb(255, 250, 250);
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: opacity 0.4s ease;
+
+}
+
+.pregunta-header button:hover,
+.opcion button:hover{
+    opacity: 1;
+}
+
+.opcion{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.opcion input{
+    width: 100%;
+    margin: 0;
+}
+
+.opcion input[type="radio"] {
+  width: 2rem;
+  height: 2rem;
+  margin: 10px;
+  
+}
+
+.agregarRespuesta button{
+    width: 100%;
+    border-radius: 1rem;
+    background-color: rgb(255, 250, 250);
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.4s ease;
+}
+
+
+.crearExamenBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.crearExamenBtn button:last-child{
+    width: 20%;
+    border-radius: 1rem;
+    background-color: rgb(255, 250, 250);
+    color: white;
+    padding: 5px;
+    font-size: 0.7rem;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
+}
+
+.crearExamenBtn button:first-child{
+     width: 30%;
+    border-radius: 1rem;
+    background-color: #2e6977;
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+    
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+    font-family: "Archivo Black", sans-serif;;
+    
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 900px) {
+ 
+    
+    main{
+        align-items: center;
+    }
+
+    .logo_header{
+        width: 150px;
+    }
+    .header_mid {
+        margin-right: 40px;
+        gap: 6px;
+    }
+ 
+    .header_mid button {
+        font-size: 0.85rem;
+    }
+ 
+    .titulo_main {
+        margin-left: 0;
+        margin-top: 5%;
+    }
+ 
+    .examen_main {
+        flex-direction: column;
+        margin-left: 5%;
+        margin-right: 5%;
+        align-items: stretch;
+    }
+ 
+    .crearExamen {
+        width: 100%;
+    }
+ 
+    .ExamenesRegistrados {
+        width: 100%;
+    }
+}
+
+
+ @media (max-width: 600px) {
+ 
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        gap: 10px;
+    }
+ 
+    .logo_header {
+        width: 150px;
+        height: 60px;
+        background-position: center;
+    }
+ 
+    .header_mid {
+        margin-right: 0;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+ 
+    .header_mid button {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+ 
+    .header_right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    
+    
+    .titulo_main {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    
+    .titulo_main h1 {
+        font-size: 1.8rem;
+    }
+    
+    .titulo_main p {
+        font-size: 0.9rem;
+    }
+    
+    .examen_main{
+        width: 90%;
+    }
+    .examen_main {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+ 
+    .formExamen {
+        grid-template-columns: 1fr;
+    }
+ 
+    .ExamenesRegistrados {
+        overflow-x: scroll;
+    }
+ 
+    .tablaExamenes {
+        min-width: 450px;
+    }
+ 
+    th, td {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+}

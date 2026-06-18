@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleGestionDeExamenes.css">
+</head>
+
+
+
+
+<body>
+    
+
+    <header>
+
+        <section class="logo_header"> 
+        </section>
+
+
+        <section class="header_mid"> 
+            <a href="/indexMain.html" class="nav-link">
+                Resolver Examen
+            </a>
+
+            <a href="/GestionUsuarios/usuarios.html" class="nav-link">
+                Usuarios
+            </a>
+
+            <a href="./indexGestionDeExamenes.html" class="nav-link active">
+                Examenes
+            </a>
+        </section>
+
+        <button class="header_right" onclick=cerrarSesion()>
+            Salir
+        </button>
+        
+
+    </header>
+
+    <main>
+
+        <section class="titulo_main">
+            <h2>BANCO DE PRUEBAS</h2>
+            <h1>Gestion de examenes</h1>
+            <p> Configura examenes, preguntas y respuestas. Cada pregunta admite una unica respuesta correcta. </p>
+        </section>
+
+        <section class="examen_main">
+
+            <section class="crearExamen"> 
+                <h2> Crear examen </h2>
+
+                <form class="formExamen">
+                    <div class="form-group">
+                        <label for="codigo">Código</label>
+                        <input type="text" id="codigo" name="codigo" required placeholder="JS-001">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="titulo">Título</label>
+                        <input type="text" id="titulo" name="titulo" required placeholder="JavaScript">
+                    </div> 
+
+                    <div class="form-group">
+                        <label for="tiempo">Tiempo en minutos</label>
+                        <input type="number" id="tiempo" name="tiempo" min="1" max="60" placeholder="Maximo : 60min" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="porcentaje">Porcentaje de aprobación</label>
+                        <input type="number" id="porcentaje" name="porcentaje" min="5" max="100" value="70" >
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="descripcion">Descripción</label>
+                        <textarea id="descripcion" name="descripcion" rows="4" placeholder="Escribe una descripcion para tu examen... "></textarea>
+                    </div>
+                </form>
+
+                <div id="preguntas" class="preguntasDiv"> 
+                    <div class="pregunta-main">
+                        <label>Preguntas </label>
+                        <button onclick=crearPregunta()>Agregar Pregunta</button>
+                    </div>
+                </div>
+                
+
+                <div class="crearExamenBtn">
+                    <button onclick=crearExamen()> Crear Examen</button>
+                    <button onclick=limpiarExamen()> Limpiar </button>
+                </div>
+
+            </section>
+
+            <section class="ExamenesRegistrados">
+                <h2>Examenes Registrados</h2>
+
+                <div class="tabla-container">
+                    <table class="tablaExamenes">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Examen</th>
+                                <th>Tiempo</th>
+                                <th>Aprobación</th>
+                                <th>Preguntas</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                            
+                        </tbody>
+                </div>
+                </table>
+
+            </section>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script src="../AutentificarCuenta/auth.js"></script>
+    <script src="./appGestionDeExamenes.js"></script>
+</body>
+</html>

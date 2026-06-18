@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f7f8;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 12px;
+    height: 50px;
+    background: #f0f2f5; 
+}
+
+.nav {
+    display: flex;
+    gap: 16px;
+    padding-right: 50px ;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.95rem;
+    padding: 6px 14px;
+    border-radius: 8px;
+    transition: 0.3s;
+    
+}
+.nav a:hover {
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+h1 {
+    font-size: 0.9rem;
+    font-weight: normal;
+    margin: 0;
+    color: #555;
+}
+
+.logoAcme{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.acme{
+    width:100px;
+    height:100px;
+    object-fit:contain;
+
+}
+
+.contenedor{
+    width:80%;
+    max-width:1000px;
+    margin:40px auto;
+}
+
+.img-principal{
+    height:180px;
+    border-radius:4px;
+    overflow:hidden;
+
+    background-image:
+    linear-gradient(rgba(0,0,0,.45),
+    rgba(0,0,0,.45)),
+    url("./imgcentral.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+}
+
+.img-central{
+    color:white;
+    padding:30px;
+}
+
+.img-central span{
+    font-size:11px;
+    font-weight:bold;
+}
+
+.img-central h1{
+    margin:10px 0;
+    font-size:48px;
+}
+
+.img-central p{
+    margin:0;
+    font-size:14px;
+}
+
+.card-examen{
+    margin-top:15px;
+    background:white;
+    border-radius:4px;
+    padding:20px;
+    box-shadow:0 1px 4px rgba(0,0,0,.08);
+}
+
+.linea-superior{
+    height:4px;
+    background:linear-gradient(
+        to right,
+        #3f95a8,
+        #f39c12,
+        #c0392b
+    );
+    border-radius:4px;
+    margin-bottom:15px;
+}
+
+
+.card-examen h3{
+    margin:0;
+    color:#2d2d2d;
+}
+
+.descripcion{
+    color:#7a7a7a;
+    font-size:14px;
+    margin-top:8px;
+}
+
+.detalles{
+    display:flex;
+    gap:20px;
+    margin:20px 0;
+    color:#8b8b8b;
+    font-size:13px;
+}
+.colorh1{
+    color: white;
+}
