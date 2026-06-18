@@ -3,20 +3,22 @@ let intervalo = null;
 
 function temporizador(examenTimer) {
     const minutos = examenTimer.tiempo;
-    const display = document.getElementById('displayTimer')
+    const display = document.getElementById('displayTimer');
     clearInterval(intervalo);
 
     display.textContent = minutos;
 
-    let tiempoRestante = minutos * 60;
+    let tiempoRestante = parseInt(sessionStorage.getItem('tiempoRestante')) || (examenTimer.tiempo * 60);
 
     actualizarDisplay();
 
     intervalo = setInterval(() => {
         tiempoRestante--;
+        sessionStorage.setItem('tiempoRestante',tiempoRestante);
         actualizarDisplay();
         if (tiempoRestante === 0) {
             clearInterval(intervalo);
+            sessionStorage.removeItem('tiempoRestante');
             display.textContent = '¡Tiempo cumplido!';
         }
         
@@ -85,14 +87,17 @@ function preguntasExamen(examenPreguntas){
 
         respuestas.forEach((respuestaI, index) =>{
             const rta = respuestaI.respuesta;
-            div.innerHTML+= 
-            `
-            <label class="option" >
-                <input type="radio" name="q${indice+1}" id="opt-let">
-                ${rta}
+        div.innerHTML += `
+        <label class="option">
+            <input
+                type="radio"
+                name="q${indice + 1}"
+                value="${index}"
+                onchange="guardarRespuesta(${indice}, ${index})"
+            >
+            ${rta}
             </label>
-
-             `
+    `;
         })
 
         section.append(div)
@@ -117,7 +122,49 @@ function cargarExamenSeleccionado() {
 document.addEventListener('DOMContentLoaded', () => {
     const examen = cargarExamenSeleccionado();
     tituloExamen(examen);
-    preguntasExamen(examen);
+    preguntasExamen(examen)
+    restaurarRespuestas();
     temporizador(examen);
    
 });
+
+function guardarRespuesta(pregunta,respuesta){
+    let respuestas = JSON.parse(sessionStorage.getItem("respuestasExamen")) || {};
+
+    respuestas[pregunta] = respuesta;
+
+    sessionStorage.setItem(
+        "respuestasExamen",
+        JSON.stringify(respuestas)
+    );
+}
+
+
+function restaurarRespuestas() {
+
+    const respuestasGuardadas =
+        JSON.parse(sessionStorage.getItem("respuestasExamen")) || {};
+
+    Object.keys(respuestasGuardadas).forEach(pregunta => {
+
+        const respuesta = respuestasGuardadas[pregunta];
+
+        const radio = document.querySelector(
+            `input[name="q${Number(pregunta)+1}"][value="${respuesta}"]`
+        );
+
+        if (radio) {
+            radio.checked = true;
+        }
+    });
+}
+
+function botonFinalizar(){
+
+    const btnFinalizar = document.getElementById('btnFinalizar')
+    const params = new URLSearchParams(window.location.search);
+    const indice = params.get('examen');
+
+    window.location.href =`../CalificacionFinal/indexCalificacion.html?examen=${indice}`;
+
+}
