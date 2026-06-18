@@ -9,6 +9,13 @@ let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 let modoEdicion = false;
 let idEditando = null;
 
+
+
+
+
+
+
+
 mostrarUsuarios();
 
 btnCrearUsuario.addEventListener("click", crearUsuario);
@@ -147,6 +154,24 @@ cuerpoTabla.addEventListener("click", (e) => {
     }
 });
 
+
+
+function cargarUser() {
+    
+    let user = JSON.parse(sessionStorage.getItem("usuarioLogueado")) || [];
+
+    const nombreUser = document.getElementById('nombreUser');
+    nombreUser.textContent= user.nombre;
+
+   
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    cargarUser()
+    
+});
 
 
 function cerrarSesion() {

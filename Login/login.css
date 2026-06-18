@@ -23,7 +23,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 6px 12px;
-    height: auto;
+    height: 7vh;
     background: #f0f2f5; 
 }
 
@@ -92,7 +92,7 @@ h1 {
 
 .section__login{
     width: 100%;
-    min-height: 90vh;
+    height: 93vh;
     background-color: #d9e8ef;
     display: flex;
     align-items: center;
@@ -206,6 +206,7 @@ input:focus{
         flex-wrap: wrap;
         gap: 1rem;
         padding: 1rem;
+        height: auto;
     }
 
     .header__img{
@@ -215,6 +216,7 @@ input:focus{
     .section__login{
         flex-direction: column;
         padding: 1.5rem;
+        min-height: 90vh;
     }
 
     .img__container{
@@ -230,8 +232,13 @@ input:focus{
 
 @media (max-width: 480px){
 
+
+    header{
+        height: auto;
+    }
     .section__login{
         padding: 1rem;
+        min-height: 90vh;
     }
 
     .form{

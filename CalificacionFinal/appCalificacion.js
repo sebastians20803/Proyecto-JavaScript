@@ -13,6 +13,9 @@ function cargarExamenSeleccionado() {
 }
 
 function porcentajeObtenido(examen){
+
+
+    document.getElementById("nombreExamen").textContent = examen.titulo;
     const respuestasUsuario = JSON.parse(sessionStorage.getItem("respuestasExamen") ) || {};
     let preguntasCorrectas = 0;
 

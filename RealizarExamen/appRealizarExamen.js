@@ -137,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tituloExamen(examen);
     preguntasExamen(examen);
     temporizador(examen);
+    restaurarRespuestas();
    
 });
 

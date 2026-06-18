@@ -301,3 +301,20 @@ tbody td{
         padding:1rem;
     }
 }
+
+#nombreUser{
+    color: green;
+    text-decoration:underline;
+}
+
+.header__user a{
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.header__user a:hover{
+   color: white;
+   background-color: red;
+}

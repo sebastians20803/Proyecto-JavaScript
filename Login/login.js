@@ -1,3 +1,11 @@
+
+const usuario = sessionStorage.getItem("usuarioLogueado");
+
+if (usuario) {
+    alert("Usuario Logeado");
+    window.location.href = "../GestionUsuarios/usuarios.html";
+}
+
 let users = [];
 
 
