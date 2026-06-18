@@ -56,3 +56,130 @@ h1 {
     object-fit:contain;
 
 }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    min-height: 100vh;
+}
+
+.access h1 {
+    font-size: 1.2rem;
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+/* TARJETA */
+
+.resultado-card {
+    background-color: white;
+    width: 100%;
+    max-width: 500px;
+
+    padding: 40px;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    text-align: center;
+}
+
+.resultado-card h4 {
+    color: #6b7280;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#nombreExamen {
+    color: #1f2937;
+    margin-bottom: 25px;
+}
+
+#porcetajeResultado {
+    font-size: 4rem;
+    color: #2563eb;
+    margin-bottom: 20px;
+}
+
+.detalle-resultado {
+    font-size: 1rem;
+    color: #4b5563;
+    margin-bottom: 15px;
+}
+
+/* ESTADO */
+
+#estadoExamen {
+    margin-top: 25px;
+}
+
+.aprobado {
+    background-color: #dcfce7;
+    color: #166534;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.reprobado {
+    background-color: #fee2e2;
+    color: #991b1b;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* BOTÓN */
+
+.acciones {
+    margin-top: 25px;
+}
+
+.acciones a {
+    display: inline-block;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+
+    transition: background-color 0.3s;
+}
+
+.acciones a:hover {
+    background-color: #1d4ed8;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #porcetajeResultado {
+        font-size: 3rem;
+    }
+
+    .resultado-card {
+        padding: 25px;
+    }
+}
