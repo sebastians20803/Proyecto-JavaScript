@@ -142,6 +142,7 @@ function crearExamen(){
     const porcentaje = document.getElementById('porcentaje').value;
     const descripcion = document.getElementById('descripcion').value;
 
+    
     if (!validarExamen()) {
         return;
 
@@ -185,7 +186,8 @@ function crearExamen(){
         tiempo:tiempo,
         porcentaje:porcentaje,
         descripcion:descripcion,
-        preguntas: preguntasExamen
+        preguntas: preguntasExamen,
+        veces_realizado:0
 
     };
     console.log(examen);

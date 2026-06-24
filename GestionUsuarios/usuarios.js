@@ -10,12 +10,6 @@ let modoEdicion = false;
 let idEditando = null;
 
 
-
-
-
-
-
-
 mostrarUsuarios();
 
 btnCrearUsuario.addEventListener("click", crearUsuario);

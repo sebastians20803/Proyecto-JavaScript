@@ -57,6 +57,8 @@ function porcentajeObtenido(examen){
         estadoExamen.innerHTML = `
             <p class="reprobado">No aprobó el examen</p>`;
     }
+
+    
 }
 
 function eliminarSession(){
